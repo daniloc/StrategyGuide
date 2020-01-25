@@ -1,48 +1,103 @@
 /**
-*  Publish Foundation theme
-*  Copyright (c) John Sundell 2019
-*  MIT license, see LICENSE file for details
-*/
+ *  Publish Foundation theme
+ *  Copyright (c) John Sundell 2019
+ *  MIT license, see LICENSE file for details
+ */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
     background: #fff;
     color: #000;
-    font-family: Helvetica, Arial;
+    font-family: Helvetica, sans-serif;
     text-align: center;
 }
+
+html, body {
+    height: 100%;
+    background-color: #f6f6f6;
+}
+
 
 .wrapper {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
-    padding: 40px;
+    padding: 80px;
     text-align: left;
 }
 
-header {
-    background-color: #eee;
+header, #sidebar {
+    background-color: #202020;
+}
+
+#content-wrapper, #sidebar {
+    float: left;
+    box-sizing: border-box;
+}
+
+#content-wrapper {
+    width: 80%;
+    padding: 20px;
+    padding-left: 40px;
+}
+
+#sidebar {
+    width: 20%;
+    max-width: 350px;
+    height: 100%;
+    right: 0px;
+    position: fixed;
+    padding: 1em;
+    text-align: right;
+}
+
+#sidebar h1 {
+    text-transform: uppercase;
+    font-size: 0.75em;
+    color: #767676;
+}
+
+#item-meta {
+    margin-top: 4em;
+    color: #777;
 }
 
 header .wrapper {
     padding-top: 30px;
     padding-bottom: 30px;
     text-align: center;
+    
+    width: 100%
 }
 
-header a {
+header a, #sidebar a {
     text-decoration: none;
 }
 
-header .site-name {
-    font-size: 1.5em;
-    color: #000;
+.site-name {
+    color: #ff9e1f;
     font-weight: bold;
+}
+
+header .site-name {
+    font-size: 1.75em;
+}
+
+#sidebar .site-name {
+    font-size: 1.25em;
+    letter-spacing: -0.5px;
+}
+
+
+#meta {
+    margin-top: 3em;
 }
 
 nav {
@@ -51,10 +106,36 @@ nav {
 
 nav li {
     display: inline-block;
+    margin: 0.25em;
+    color: #a2a2a2;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#sidebar nav li {
+    display: block;
+    margin: 0px;
+    font-size: 1em;
+    line-height: 1.25em;
+}
+
+#sidebar footer {
+    position: absolute;
+    bottom: 0;
+    right: 1em;
+    text-align: right;
+    margin-top: 1em;
+    font-size: 0.75em;
+}
+
+#sidebar .description {
+    font-size: 0.75em;
+    color: #a6a6a6;
+    margin-top: 0.5em;
 }
 
 h1 {
-    margin-bottom: 20px;
+    margin-bottom: 1em;
     font-size: 2em;
 }
 
@@ -63,7 +144,15 @@ h2 {
 }
 
 h3 {
-    margin: 5px 0;
+    margin-top: 1em;
+    margin-bottom: .5em;
+    text-transform: uppercase;
+    font-size: 1.1em;
+}
+
+h1, h2, h3 {
+    color: #333;
+    letter-spacing: -0.5px;
 }
 
 p {
@@ -81,8 +170,6 @@ a {
 .item-list > li {
     display: block;
     padding: 20px;
-    border-radius: 20px;
-    background-color: #eee;
 }
 
 .item-list h1 {
@@ -101,11 +188,10 @@ a {
 .tag-list li,
 .tag {
     display: inline-block;
-    background-color: #000;
-    color: #ddd;
     padding: 4px 6px;
-    border-radius: 5px;
     margin-right: 5px;
+    color: #0063AF;
+    font-weight: bold;
 }
 
 .tag-list a,
@@ -119,6 +205,7 @@ a {
 
 .content {
     margin-bottom: 40px;
+    line-height: 1.3em;
 }
 
 .browse-all {
@@ -136,21 +223,40 @@ footer {
     color: #8a8a8a;
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #222;
+@media all and (max-width: 768px) {
+    
+    #content-wrapper {
+        padding-left: 10px;
     }
-
-    body,
-    header .site-name {
-        color: #ddd;
+    
+    #sidebar, #content-wrapper {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+        height: auto;
     }
-
-    .item-list > li {
-        background-color: #333;
-    }
-
-    header {
-        background-color: #000;
+    
+    #sidebar footer {
+        position: unset;
     }
 }
+
+/*@media (prefers-color-scheme: dark) {*/
+/*    body {*/
+/*        background-color: #222;*/
+/*    }*/
+/**/
+/*    body,*/
+/*    header .site-name {*/
+/*        color: #ddd;*/
+/*    }*/
+/**/
+/*    .item-list > li {*/
+/*        background-color: #333;*/
+/*    }*/
+/**/
+/*    header {*/
+/*        background-color: #000;*/
+/*    }*/
+/*}*/
